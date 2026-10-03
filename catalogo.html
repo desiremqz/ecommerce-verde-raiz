@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo | Verde Raíz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=DM+Sans:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body id="pag-catalogo">
+  <header class="cabecera">
+    <a class="marca" href="index.html">Verde Raíz</a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="registro.html">Registro</a></li>
+        <li><a href="quienes-somos.html">Quiénes somos</a></li>
+        <li><a href="catalogo.html">Catálogo</a></li>
+        <li><a href="carrito.html">Carrito (<span id="contador">0</span>)</a></li>
+        <li><a href="busqueda.html">Búsqueda</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>Catálogo</h1>
+    <p id="aviso-carrito" class="mensaje" role="status"></p>
+    <section class="rejilla">
+      <article class="producto">
+        <img src="images/p1.svg" alt="Monstera en maceta de barro">
+        <h2>Monstera en maceta de barro</h2>
+        <p class="precio">$280.00 MXN</p>
+        <button type="button" class="boton btn-agregar" data-nombre="Monstera en maceta de barro">Agregar al carrito</button>
+      </article>
+      <article class="producto">
+        <img src="images/p2.svg" alt="Sansevieria mini">
+        <h2>Sansevieria mini</h2>
+        <p class="precio">$150.00 MXN</p>
+        <button type="button" class="boton btn-agregar" data-nombre="Sansevieria mini">Agregar al carrito</button>
+      </article>
+      <article class="producto">
+        <img src="images/p3.svg" alt="Pothos colgante">
+        <h2>Pothos colgante</h2>
+        <p class="precio">$120.00 MXN</p>
+        <button type="button" class="boton btn-agregar" data-nombre="Pothos colgante">Agregar al carrito</button>
+      </article>
+      <article class="producto">
+        <img src="images/p4.svg" alt="Ficus lira">
+        <h2>Ficus lira</h2>
+        <p class="precio">$450.00 MXN</p>
+        <button type="button" class="boton btn-agregar" data-nombre="Ficus lira">Agregar al carrito</button>
+      </article>
+    </section>
+  </main>
+  <footer class="pie">
+    <p>Proyecto escolar de demostración. Consulta la <a href="https://developer.mozilla.org/es/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL" target="_blank" rel="noopener">guía de URLs en MDN</a>.</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

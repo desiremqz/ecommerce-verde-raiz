@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quiénes somos | Verde Raíz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=DM+Sans:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body id="pag-nosotros">
+  <header class="cabecera">
+    <a class="marca" href="index.html">Verde Raíz</a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="registro.html">Registro</a></li>
+        <li><a href="quienes-somos.html">Quiénes somos</a></li>
+        <li><a href="catalogo.html">Catálogo</a></li>
+        <li><a href="carrito.html">Carrito (<span id="contador">0</span>)</a></li>
+        <li><a href="busqueda.html">Búsqueda</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>Quiénes somos</h1>
+    <p>Soy una estudiante que construyó esta tienda para practicar HTML, CSS y JavaScript.</p>
+    <table class="tabla">
+      <caption>Integrantes del equipo</caption>
+      <thead>
+        <tr><th>Nombre</th><th>Rol</th><th>Correo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Hanna Desire Cruz Márquez</td><td>Desarrolladora web (proyecto individual)</td><td>cruzmqzhanna@gmail.com</td></tr>
+      </tbody>
+    </table>
+    <button type="button" id="btn-ver-mas" class="boton" aria-expanded="false" aria-controls="info-extra">Ver más</button>
+    <section id="info-extra" class="oculto">
+      <h2>Más sobre el proyecto</h2>
+      <p>Verde Raíz es un sitio de demostración: los productos, precios y el carrito no se guardan de forma real.</p>
+      <p>Publicamos el sitio con GitHub Pages usando la opción "Deploy from a branch".</p>
+    </section>
+  </main>
+  <footer class="pie">
+    <p>Proyecto escolar de demostración. Consulta la <a href="https://developer.mozilla.org/es/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL" target="_blank" rel="noopener">guía de URLs en MDN</a>.</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
