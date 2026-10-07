@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Catálogo | Verde Raíz</title>
+  <title>Catálogo | El rincón del libro</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=DM+Sans:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500&family=Lora:ital,wght@0,400;0,500;0,700;1,400&display=swap">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body id="pag-catalogo">
   <header class="cabecera">
-    <a class="marca" href="index.html">Verde Raíz</a>
+    <a class="marca" href="index.html">El rincón del libro</a>
     <nav>
       <ul>
         <li><a href="index.html">Inicio</a></li>
@@ -25,32 +25,383 @@
   </header>
   <main>
     <h1>Catálogo</h1>
+    <p class="nota">50 títulos disponibles para renta por semana.</p>
+    <ul class="categorias"><li><a href="#novelas">Novelas y ficción</a></li><li><a href="#clasicos">Clásicos de la literatura</a></li><li><a href="#ciencia">Ciencia y tecnología</a></li><li><a href="#infantiles">Libros infantiles</a></li><li><a href="#texto">Libros de texto</a></li></ul>
     <p id="aviso-carrito" class="mensaje" role="status"></p>
-    <section class="rejilla">
-      <article class="producto">
-        <img src="images/p1.svg" alt="Monstera en maceta de barro">
-        <h2>Monstera en maceta de barro</h2>
-        <p class="precio">$280.00 MXN</p>
-        <button type="button" class="boton btn-agregar" data-nombre="Monstera en maceta de barro">Agregar al carrito</button>
-      </article>
-      <article class="producto">
-        <img src="images/p2.svg" alt="Sansevieria mini">
-        <h2>Sansevieria mini</h2>
-        <p class="precio">$150.00 MXN</p>
-        <button type="button" class="boton btn-agregar" data-nombre="Sansevieria mini">Agregar al carrito</button>
-      </article>
-      <article class="producto">
-        <img src="images/p3.svg" alt="Pothos colgante">
-        <h2>Pothos colgante</h2>
-        <p class="precio">$120.00 MXN</p>
-        <button type="button" class="boton btn-agregar" data-nombre="Pothos colgante">Agregar al carrito</button>
-      </article>
-      <article class="producto">
-        <img src="images/p4.svg" alt="Ficus lira">
-        <h2>Ficus lira</h2>
-        <p class="precio">$450.00 MXN</p>
-        <button type="button" class="boton btn-agregar" data-nombre="Ficus lira">Agregar al carrito</button>
-      </article>
+    <section id="novelas" class="categoria">
+      <h2>Novelas y ficción</h2>
+      <div class="rejilla">
+        <article class="producto">
+          <img src="images/l01.svg" alt="Portada de Cien años de soledad" loading="lazy">
+          <h3>Cien años de soledad</h3>
+          <p class="autor">Gabriel García Márquez</p>
+          <p class="precio">$35.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Cien años de soledad">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l02.svg" alt="Portada de Pedro Páramo" loading="lazy">
+          <h3>Pedro Páramo</h3>
+          <p class="autor">Juan Rulfo</p>
+          <p class="precio">$50.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Pedro Páramo">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l03.svg" alt="Portada de La sombra del viento" loading="lazy">
+          <h3>La sombra del viento</h3>
+          <p class="autor">Carlos Ruiz Zafón</p>
+          <p class="precio">$30.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="La sombra del viento">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l04.svg" alt="Portada de Rayuela" loading="lazy">
+          <h3>Rayuela</h3>
+          <p class="autor">Julio Cortázar</p>
+          <p class="precio">$48.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Rayuela">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l05.svg" alt="Portada de La casa de los espíritus" loading="lazy">
+          <h3>La casa de los espíritus</h3>
+          <p class="autor">Isabel Allende</p>
+          <p class="precio">$45.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="La casa de los espíritus">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l06.svg" alt="Portada de Como agua para chocolate" loading="lazy">
+          <h3>Como agua para chocolate</h3>
+          <p class="autor">Laura Esquivel</p>
+          <p class="precio">$60.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Como agua para chocolate">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l07.svg" alt="Portada de El túnel" loading="lazy">
+          <h3>El túnel</h3>
+          <p class="autor">Ernesto Sabato</p>
+          <p class="precio">$38.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="El túnel">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l08.svg" alt="Portada de Ensayo sobre la ceguera" loading="lazy">
+          <h3>Ensayo sobre la ceguera</h3>
+          <p class="autor">José Saramago</p>
+          <p class="precio">$40.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Ensayo sobre la ceguera">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l09.svg" alt="Portada de 1984" loading="lazy">
+          <h3>1984</h3>
+          <p class="autor">George Orwell</p>
+          <p class="precio">$55.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="1984">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l10.svg" alt="Portada de Fahrenheit 451" loading="lazy">
+          <h3>Fahrenheit 451</h3>
+          <p class="autor">Ray Bradbury</p>
+          <p class="precio">$65.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Fahrenheit 451">Agregar al carrito</button>
+        </article>
+      </div>
+    </section>
+    <section id="clasicos" class="categoria">
+      <h2>Clásicos de la literatura</h2>
+      <div class="rejilla">
+        <article class="producto">
+          <img src="images/l11.svg" alt="Portada de Don Quijote de la Mancha" loading="lazy">
+          <h3>Don Quijote de la Mancha</h3>
+          <p class="autor">Miguel de Cervantes</p>
+          <p class="precio">$35.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Don Quijote de la Mancha">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l12.svg" alt="Portada de Orgullo y prejuicio" loading="lazy">
+          <h3>Orgullo y prejuicio</h3>
+          <p class="autor">Jane Austen</p>
+          <p class="precio">$50.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Orgullo y prejuicio">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l13.svg" alt="Portada de Crimen y castigo" loading="lazy">
+          <h3>Crimen y castigo</h3>
+          <p class="autor">Fiódor Dostoievski</p>
+          <p class="precio">$30.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Crimen y castigo">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l14.svg" alt="Portada de Los miserables" loading="lazy">
+          <h3>Los miserables</h3>
+          <p class="autor">Victor Hugo</p>
+          <p class="precio">$48.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Los miserables">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l15.svg" alt="Portada de Moby Dick" loading="lazy">
+          <h3>Moby Dick</h3>
+          <p class="autor">Herman Melville</p>
+          <p class="precio">$45.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Moby Dick">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l16.svg" alt="Portada de Drácula" loading="lazy">
+          <h3>Drácula</h3>
+          <p class="autor">Bram Stoker</p>
+          <p class="precio">$60.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Drácula">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l17.svg" alt="Portada de Frankenstein" loading="lazy">
+          <h3>Frankenstein</h3>
+          <p class="autor">Mary Shelley</p>
+          <p class="precio">$38.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Frankenstein">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l18.svg" alt="Portada de Jane Eyre" loading="lazy">
+          <h3>Jane Eyre</h3>
+          <p class="autor">Charlotte Brontë</p>
+          <p class="precio">$40.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Jane Eyre">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l19.svg" alt="Portada de La Odisea" loading="lazy">
+          <h3>La Odisea</h3>
+          <p class="autor">Homero</p>
+          <p class="precio">$55.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="La Odisea">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l20.svg" alt="Portada de Madame Bovary" loading="lazy">
+          <h3>Madame Bovary</h3>
+          <p class="autor">Gustave Flaubert</p>
+          <p class="precio">$65.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Madame Bovary">Agregar al carrito</button>
+        </article>
+      </div>
+    </section>
+    <section id="ciencia" class="categoria">
+      <h2>Ciencia y tecnología</h2>
+      <div class="rejilla">
+        <article class="producto">
+          <img src="images/l21.svg" alt="Portada de Breve historia del tiempo" loading="lazy">
+          <h3>Breve historia del tiempo</h3>
+          <p class="autor">Stephen Hawking</p>
+          <p class="precio">$35.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Breve historia del tiempo">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l22.svg" alt="Portada de Cosmos" loading="lazy">
+          <h3>Cosmos</h3>
+          <p class="autor">Carl Sagan</p>
+          <p class="precio">$50.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Cosmos">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l23.svg" alt="Portada de El gen egoísta" loading="lazy">
+          <h3>El gen egoísta</h3>
+          <p class="autor">Richard Dawkins</p>
+          <p class="precio">$30.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="El gen egoísta">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l24.svg" alt="Portada de Sapiens" loading="lazy">
+          <h3>Sapiens</h3>
+          <p class="autor">Yuval Noah Harari</p>
+          <p class="precio">$48.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Sapiens">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l25.svg" alt="Portada de Redes de computadoras" loading="lazy">
+          <h3>Redes de computadoras</h3>
+          <p class="autor">Andrew S. Tanenbaum</p>
+          <p class="precio">$45.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Redes de computadoras">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l26.svg" alt="Portada de Fundamentos de programación" loading="lazy">
+          <h3>Fundamentos de programación</h3>
+          <p class="autor">Luis Joyanes Aguilar</p>
+          <p class="precio">$60.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Fundamentos de programación">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l27.svg" alt="Portada de Código limpio" loading="lazy">
+          <h3>Código limpio</h3>
+          <p class="autor">Robert C. Martin</p>
+          <p class="precio">$38.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Código limpio">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l28.svg" alt="Portada de El programador pragmático" loading="lazy">
+          <h3>El programador pragmático</h3>
+          <p class="autor">Andrew Hunt y David Thomas</p>
+          <p class="precio">$40.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="El programador pragmático">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l29.svg" alt="Portada de Inteligencia artificial: un enfoque moderno" loading="lazy">
+          <h3>Inteligencia artificial: un enfoque moderno</h3>
+          <p class="autor">Stuart Russell y Peter Norvig</p>
+          <p class="precio">$55.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Inteligencia artificial: un enfoque moderno">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l30.svg" alt="Portada de Una breve historia de casi todo" loading="lazy">
+          <h3>Una breve historia de casi todo</h3>
+          <p class="autor">Bill Bryson</p>
+          <p class="precio">$65.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Una breve historia de casi todo">Agregar al carrito</button>
+        </article>
+      </div>
+    </section>
+    <section id="infantiles" class="categoria">
+      <h2>Libros infantiles</h2>
+      <div class="rejilla">
+        <article class="producto">
+          <img src="images/l31.svg" alt="Portada de El principito" loading="lazy">
+          <h3>El principito</h3>
+          <p class="autor">Antoine de Saint-Exupéry</p>
+          <p class="precio">$35.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="El principito">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l32.svg" alt="Portada de Alicia en el país de las maravillas" loading="lazy">
+          <h3>Alicia en el país de las maravillas</h3>
+          <p class="autor">Lewis Carroll</p>
+          <p class="precio">$50.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Alicia en el país de las maravillas">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l33.svg" alt="Portada de Pinocho" loading="lazy">
+          <h3>Pinocho</h3>
+          <p class="autor">Carlo Collodi</p>
+          <p class="precio">$30.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Pinocho">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l34.svg" alt="Portada de Peter Pan" loading="lazy">
+          <h3>Peter Pan</h3>
+          <p class="autor">J. M. Barrie</p>
+          <p class="precio">$48.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Peter Pan">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l35.svg" alt="Portada de Matilda" loading="lazy">
+          <h3>Matilda</h3>
+          <p class="autor">Roald Dahl</p>
+          <p class="precio">$45.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Matilda">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l36.svg" alt="Portada de Charlie y la fábrica de chocolate" loading="lazy">
+          <h3>Charlie y la fábrica de chocolate</h3>
+          <p class="autor">Roald Dahl</p>
+          <p class="precio">$60.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Charlie y la fábrica de chocolate">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l37.svg" alt="Portada de Donde viven los monstruos" loading="lazy">
+          <h3>Donde viven los monstruos</h3>
+          <p class="autor">Maurice Sendak</p>
+          <p class="precio">$38.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Donde viven los monstruos">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l38.svg" alt="Portada de Momo" loading="lazy">
+          <h3>Momo</h3>
+          <p class="autor">Michael Ende</p>
+          <p class="precio">$40.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Momo">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l39.svg" alt="Portada de La historia interminable" loading="lazy">
+          <h3>La historia interminable</h3>
+          <p class="autor">Michael Ende</p>
+          <p class="precio">$55.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="La historia interminable">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l40.svg" alt="Portada de El libro de la selva" loading="lazy">
+          <h3>El libro de la selva</h3>
+          <p class="autor">Rudyard Kipling</p>
+          <p class="precio">$65.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="El libro de la selva">Agregar al carrito</button>
+        </article>
+      </div>
+    </section>
+    <section id="texto" class="categoria">
+      <h2>Libros de texto</h2>
+      <div class="rejilla">
+        <article class="producto">
+          <img src="images/l41.svg" alt="Portada de Cálculo de una variable" loading="lazy">
+          <h3>Cálculo de una variable</h3>
+          <p class="autor">James Stewart</p>
+          <p class="precio">$35.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Cálculo de una variable">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l42.svg" alt="Portada de Álgebra lineal" loading="lazy">
+          <h3>Álgebra lineal</h3>
+          <p class="autor">Stanley I. Grossman</p>
+          <p class="precio">$50.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Álgebra lineal">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l43.svg" alt="Portada de Física universitaria" loading="lazy">
+          <h3>Física universitaria</h3>
+          <p class="autor">Sears y Zemansky</p>
+          <p class="precio">$30.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Física universitaria">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l44.svg" alt="Portada de Química" loading="lazy">
+          <h3>Química</h3>
+          <p class="autor">Raymond Chang</p>
+          <p class="precio">$48.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Química">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l45.svg" alt="Portada de Biología" loading="lazy">
+          <h3>Biología</h3>
+          <p class="autor">Neil A. Campbell</p>
+          <p class="precio">$45.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Biología">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l46.svg" alt="Portada de Introducción a los algoritmos" loading="lazy">
+          <h3>Introducción a los algoritmos</h3>
+          <p class="autor">Cormen, Leiserson, Rivest y Stein</p>
+          <p class="precio">$60.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Introducción a los algoritmos">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l47.svg" alt="Portada de Fundamentos de bases de datos" loading="lazy">
+          <h3>Fundamentos de bases de datos</h3>
+          <p class="autor">Silberschatz, Korth y Sudarshan</p>
+          <p class="precio">$38.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Fundamentos de bases de datos">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l48.svg" alt="Portada de Ingeniería de software" loading="lazy">
+          <h3>Ingeniería de software</h3>
+          <p class="autor">Ian Sommerville</p>
+          <p class="precio">$40.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Ingeniería de software">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l49.svg" alt="Portada de Probabilidad y estadística" loading="lazy">
+          <h3>Probabilidad y estadística</h3>
+          <p class="autor">Morris H. DeGroot</p>
+          <p class="precio">$55.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Probabilidad y estadística">Agregar al carrito</button>
+        </article>
+        <article class="producto">
+          <img src="images/l50.svg" alt="Portada de Sistemas operativos modernos" loading="lazy">
+          <h3>Sistemas operativos modernos</h3>
+          <p class="autor">Andrew S. Tanenbaum</p>
+          <p class="precio">$65.00 MXN / semana</p>
+          <button type="button" class="boton btn-agregar" data-nombre="Sistemas operativos modernos">Agregar al carrito</button>
+        </article>
+      </div>
     </section>
   </main>
   <footer class="pie">

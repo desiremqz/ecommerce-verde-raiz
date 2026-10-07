@@ -1,5 +1,36 @@
+/* ---------- Carrito compartido entre páginas ---------- */
+var CLAVE = "libroNomadaCarrito";
+var respaldo = [];
+
+function leerCarrito() {
+  try {
+    return JSON.parse(localStorage.getItem(CLAVE)) || [];
+  } catch (e) {
+    return respaldo;
+  }
+}
+
+function guardarCarrito(carrito) {
+  respaldo = carrito;
+  try {
+    localStorage.setItem(CLAVE, JSON.stringify(carrito));
+  } catch (e) { /* si el navegador bloquea el almacenamiento, se usa el respaldo en memoria */ }
+  actualizarContador();
+}
+
+function actualizarContador() {
+  var total = leerCarrito().reduce(function (suma, it) { return suma + it.cantidad; }, 0);
+  var contador = document.getElementById("contador");
+  if (contador) contador.textContent = total;
+}
+
+function dinero(n) {
+  return "$" + n.toFixed(2);
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   var pagina = document.body.id;
+  actualizarContador();
 
   if (pagina === "pag-registro") iniciarRegistro();
   if (pagina === "pag-nosotros") iniciarNosotros();
@@ -16,7 +47,6 @@ function iniciarRegistro() {
   var mensaje = document.getElementById("mensaje-registro");
   var campos = form.querySelectorAll('input[type="text"], input[type="email"], input[type="password"], input[type="date"], input[type="tel"]');
 
-  // El botón solo se habilita al aceptar los términos
   terminos.addEventListener("change", function () {
     boton.disabled = !terminos.checked;
   });
@@ -33,7 +63,6 @@ function iniciarRegistro() {
         return;
       }
     }
-    // Valida los patrones HTML5 (correo y teléfono)
     for (var j = 0; j < campos.length; j++) {
       if (!campos[j].checkValidity()) {
         mensaje.textContent = campos[j].title || "Revisa el formato de los datos.";
@@ -42,7 +71,7 @@ function iniciarRegistro() {
         return;
       }
     }
-    mensaje.textContent = "¡Registro completado! Bienvenido a Verde Raíz.";
+    mensaje.textContent = "¡Registro completado! Bienvenido a El rincón del libro.";
     mensaje.classList.add("ok");
     form.reset();
     boton.disabled = true;
@@ -61,54 +90,117 @@ function iniciarNosotros() {
   });
 }
 
-/* ---------- Catálogo ---------- */
+/* ---------- Catálogo: agrega libros al carrito ---------- */
 function iniciarCatalogo() {
-  var contador = document.getElementById("contador");
   var aviso = document.getElementById("aviso-carrito");
-  var botones = document.querySelectorAll(".btn-agregar");
-  var total = 0;
 
-  botones.forEach(function (btn) {
+  document.querySelectorAll(".btn-agregar").forEach(function (btn) {
     btn.addEventListener("click", function () {
-      total++;
-      contador.textContent = total;
-      aviso.textContent = "Agregaste \"" + btn.dataset.nombre + "\" al carrito.";
+      var nombre = btn.dataset.nombre;
+      var texto = btn.closest(".producto").querySelector(".precio").textContent;
+      var precio = parseFloat(texto.replace(/[^0-9.]/g, ""));
+      var carrito = leerCarrito();
+      var existente = carrito.filter(function (it) { return it.nombre === nombre; })[0];
+
+      if (existente) {
+        existente.cantidad++;
+      } else {
+        carrito.push({ nombre: nombre, precio: precio, cantidad: 1 });
+      }
+      guardarCarrito(carrito);
+      aviso.textContent = "Agregaste \"" + nombre + "\" al carrito.";
       aviso.className = "mensaje ok";
     });
   });
 }
 
-/* ---------- Carrito ---------- */
+/* ---------- Carrito: se dibuja con lo que se agregó ---------- */
 function iniciarCarrito() {
-  var filas = document.querySelectorAll("tbody tr");
+  var vacio = document.getElementById("carrito-vacio");
+  var lleno = document.getElementById("carrito-lleno");
+  var cuerpo = document.getElementById("lista-carrito");
   var celdaTotal = document.getElementById("total");
 
-  function dinero(n) {
-    return "$" + n.toFixed(2);
-  }
-
   function recalcular() {
+    var carrito = leerCarrito();
     var total = 0;
-    filas.forEach(function (fila) {
-      var precio = parseFloat(fila.dataset.precio);
-      var cantidad = parseInt(fila.querySelector(".cantidad").value, 10) || 0;
-      var subtotal = precio * cantidad;
+    cuerpo.querySelectorAll("tr").forEach(function (fila, i) {
+      var subtotal = carrito[i].precio * carrito[i].cantidad;
       fila.querySelector(".subtotal").textContent = dinero(subtotal);
       total += subtotal;
     });
     celdaTotal.textContent = dinero(total);
   }
 
-  filas.forEach(function (fila) {
-    var input = fila.querySelector(".cantidad");
-    input.addEventListener("input", function () {
-      // Solo números: elimina cualquier otro carácter
-      input.value = input.value.replace(/\D/g, "");
-      recalcular();
+  function dibujar() {
+    var carrito = leerCarrito();
+    cuerpo.innerHTML = "";
+    vacio.classList.toggle("oculto", carrito.length > 0);
+    lleno.classList.toggle("oculto", carrito.length === 0);
+
+    carrito.forEach(function (item, i) {
+      var fila = document.createElement("tr");
+
+      var celdaNombre = document.createElement("td");
+      celdaNombre.textContent = item.nombre;
+
+      var celdaPrecio = document.createElement("td");
+      celdaPrecio.textContent = dinero(item.precio);
+
+      var celdaCantidad = document.createElement("td");
+      var input = document.createElement("input");
+      input.type = "text";
+      input.className = "cantidad";
+      input.value = item.cantidad;
+      input.setAttribute("inputmode", "numeric");
+      input.setAttribute("aria-label", "Semanas de renta de " + item.nombre);
+      input.addEventListener("input", function () {
+        input.value = input.value.replace(/\D/g, "");   // solo números
+        var c = leerCarrito();
+        c[i].cantidad = parseInt(input.value, 10) || 0;
+        guardarCarrito(c);
+        recalcular();
+      });
+      input.addEventListener("blur", function () {
+        if (input.value === "" || parseInt(input.value, 10) === 0) {
+          input.value = 1;
+          var c = leerCarrito();
+          c[i].cantidad = 1;
+          guardarCarrito(c);
+          recalcular();
+        }
+      });
+      celdaCantidad.appendChild(input);
+
+      var celdaSub = document.createElement("td");
+      celdaSub.className = "subtotal";
+
+      var celdaQuitar = document.createElement("td");
+      var quitar = document.createElement("button");
+      quitar.type = "button";
+      quitar.className = "btn-quitar";
+      quitar.textContent = "Quitar";
+      quitar.setAttribute("aria-label", "Quitar " + item.nombre + " del carrito");
+      quitar.addEventListener("click", function () {
+        var c = leerCarrito();
+        c.splice(i, 1);
+        guardarCarrito(c);
+        dibujar();
+      });
+      celdaQuitar.appendChild(quitar);
+
+      [celdaNombre, celdaPrecio, celdaCantidad, celdaSub, celdaQuitar].forEach(function (td) { fila.appendChild(td); });
+      cuerpo.appendChild(fila);
     });
+    recalcular();
+  }
+
+  document.getElementById("btn-vaciar").addEventListener("click", function () {
+    guardarCarrito([]);
+    dibujar();
   });
 
-  recalcular();
+  dibujar();
 }
 
 /* ---------- Búsqueda ---------- */
